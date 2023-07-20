@@ -1,12 +1,12 @@
-export class GraveDiggerEntity {
-  id;
-  name;
-  cpf;
-  birthDate;
-  nationality;
-  gender;
+export class Client{
+    id;
+    name;
+    cpf;
+    birthDate;
+    nationality;
+    gender;
 
-  constructor({ id, name, cpf, birthDate, nationality, gender }) {
+constructor({ id, name, cpf, birthDate, nationality, gender }) {
     this.id = id;
     this.name = name;
     this.cpf = cpf;
@@ -15,12 +15,9 @@ export class GraveDiggerEntity {
     this.gender = gender;
     this.validator();
   }
-
   validator() {
-    const errors = []
-
     if (!this.id || !(typeof this.id === 'number')) {
-      errors.push('invalid id');
+      throw new Error('invalid id');
     }
 
     if (
@@ -28,7 +25,7 @@ export class GraveDiggerEntity {
       !(typeof this.name === 'string') ||
       !(this.name.length > 0 && this.name.length <= 255)
     ) {
-      errors.push('invalid name');
+      throw new Error('invalid name');
     }
 
     if (
@@ -36,11 +33,11 @@ export class GraveDiggerEntity {
       !(typeof this.cpf === 'number') ||
       String(this.cpf).length !== 11
     ) {
-      errors.push('invalid cpf');
+      throw new Error('invalid cpf');
     }
 
     if (!this.birthDate || !(typeof this.birthDate === 'string')) {
-      errors.push('invalid birth date');
+      throw new Error('invalid birth date');
     }
 
     if (
@@ -48,22 +45,17 @@ export class GraveDiggerEntity {
       !(typeof this.nationality === 'string') ||
       !(this.nationality.length > 0 && this.nationality.length <= 255)
     ) {
-      errors.push('invalid nationality');
+      throw new Error('invalid nationality');
     }
 
     if (this.gender !== 'M' && this.gender !== 'F' && this.gender !== 'NB') {
-      errors.push('invalid gender');
-    }
-
-    if(errors.length > 0) {
-      throw new Error(errors.join())
+      throw new Error('invalid gender');
     }
 
     return;
   }
-
   clone() {
-    return new GraveDiggerEntity({
+    return new ClientEntity({
       id: this.id,
       name: this.name,
       cpf: this.cpf,
@@ -72,4 +64,5 @@ export class GraveDiggerEntity {
       gender: this.gender,
     });
   }
+
 }
