@@ -1,12 +1,11 @@
-module.exports = {
-  transform: { '^.+\\.ts?$': ['ts-jest', { tsconfig: 'tsconfig.json' }] },
-  testEnvironment: 'node',
-  testRegex: '/tests/.*\\.(test|spec)?\\.(ts|tsx)$',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  moduleDirectories: ['node_modules', 'src', 'tests'],
+export default {
+  testEnvironment: 'jest-environment-node',
+  transform: {},
+  testRegex: '/tests/.*\\.(test|spec)?\\.(js|jsx)$',
+  moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
+  moduleDirectories: ['node_modules', 'src'],
   moduleNameMapper: {
     'src/(.*)': '<rootDir>/src/$1',
-    'tests/(.*)': '<rootDir>/tests/$1',
   },
   coverageDirectory: 'coverage',
   coverageReporters: ['json', 'text', 'lcov', 'clover'],
