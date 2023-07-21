@@ -4,6 +4,5 @@ export const validClient = {
     cpf: 12345678910,
     birthDate: '09/02/2031',
     nationality: 'Montanha',
-    gender: 'H',
-  };
-  
+    gender: 'M',
+};

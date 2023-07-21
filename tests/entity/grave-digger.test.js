@@ -41,6 +41,10 @@ describe('Grave Digger - Unit Tests', () => {
   test('should invalidate nationality if is too big/too small or not a string', ()=>{
     expect(()=> new GraveDiggerEntity({}).toThrow(error))
     expect(()=> new GraveDiggerEntity({nationality:2}).toThrow(error))
+    let tooBigString = 'a';
+    for (let i = 0; i < 256; i++) {
+      tooBigString += 'a'
+    }
     expect(()=> new GraveDiggerEntity({nationality:tooBigString}).toThrow(error))
   });
 
