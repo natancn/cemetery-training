@@ -4,12 +4,14 @@ export class TumulusEntity{
     location;
     tombstone;
     gravedigger;
-    constructor({id,deepness,location,tombstone,gravedigger}){
+    client;
+    constructor({id,deepness,location,tombstone,gravedigger,client}){
         this.id = id;
         this.deepness = deepness;
         this.location = location;
         this.tombstone = tombstone;
         this.gravedigger = gravedigger;
+        this.client = client;
         this.validator();
     }
 
@@ -33,6 +35,9 @@ export class TumulusEntity{
         if(!this.gravedigger){
             errors.push(' invalid gravedigger')
         }
+        if(!this.client){
+            errors.push(' invalid client')
+        }
         if(errors.length > 0){
             throw new Error(errors.join())
         }
@@ -44,7 +49,8 @@ export class TumulusEntity{
             deepness: this.deepness,
             location: this.location,
             tombstone: this.tombstone,
-            gravedigger: this.gravedigger
+            gravedigger: this.gravedigger,
+            client: this.client
         });
     }
 };

@@ -45,7 +45,7 @@ describe('Client - Unit Tests', () => {
         expect(()=> new ClientEntity({nationality:tooBigString})).toThrow(error)
     });
     
-    test('should invalidate genter if is not one of the options avaiable',()=>{
+    test('should invalidate gender if is not one of the options avaiable',()=>{
         expect(()=> new ClientEntity({})).toThrow(error)
         expect(()=> new ClientEntity({gender: 'D'})).toThrow(error)
         expect(()=> new ClientEntity({gender: 3})).toThrow(error)
