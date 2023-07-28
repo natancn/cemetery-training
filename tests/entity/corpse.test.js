@@ -1,6 +1,6 @@
-import{test,describe,expect} from '@jest/globals'
-import { CorpseEntity } from '../../src/entity/corpse'
-import { validCorpse } from '../mocks/corpse.mock'
+import { test, describe, expect } from '@jest/globals';
+import { CorpseEntity } from '../../src/entity/corpse';
+import { validCorpse } from '../mocks/corpse.mock';
 import { CoffinEntity } from '../../src/entity/coffin'
 import { validCoffin } from '../mocks/coffin.mocks'
 

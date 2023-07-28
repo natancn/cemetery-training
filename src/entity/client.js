@@ -1,12 +1,12 @@
-export class ClientEntity{
-    id;
-    name;
-    cpf;
-    birthDate;
-    nationality;
-    gender;
+export class ClientEntity {
+  id;
+  name;
+  cpf;
+  birthDate;
+  nationality;
+  gender;
 
-constructor({ id, name, cpf, birthDate, nationality, gender }) {
+  constructor({ id, name, cpf, birthDate, nationality, gender }) {
     this.id = id;
     this.name = name;
     this.cpf = cpf;
@@ -16,8 +16,7 @@ constructor({ id, name, cpf, birthDate, nationality, gender }) {
     this.validator();
   }
   validator() {
-
-    const errors =[]
+    const errors = [];
 
     if (!this.id || !(typeof this.id === 'number')) {
       errors.push('invalid id');
@@ -39,7 +38,7 @@ constructor({ id, name, cpf, birthDate, nationality, gender }) {
       errors.push('invalid cpf');
     }
 
-    if (!this.birthDate || (typeof this.birthDate !== 'string')) {
+    if (!this.birthDate || typeof this.birthDate !== 'string') {
       errors.push('invalid birth date');
     }
 
@@ -54,9 +53,9 @@ constructor({ id, name, cpf, birthDate, nationality, gender }) {
     if (this.gender !== 'M' && this.gender !== 'F' && this.gender !== 'NB') {
       errors.push('invalid gender');
     }
-    
-    if(errors.length > 0) {
-      throw new Error(errors.join())
+
+    if (errors.length > 0) {
+      throw new Error(errors.join());
     }
 
     return;
@@ -71,5 +70,4 @@ constructor({ id, name, cpf, birthDate, nationality, gender }) {
       gender: this.gender,
     });
   }
-
 }

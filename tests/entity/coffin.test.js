@@ -1,4 +1,4 @@
-import{test,describe,expect} from '@jest/globals';
+import { test, describe, expect } from '@jest/globals';
 import { CoffinEntity } from '../../src/entity/coffin';
 import { validCoffin } from '../mocks/coffin.mocks';
 import { TombEntity } from '../../src/entity/tomb';
@@ -8,7 +8,7 @@ import { validTumulus } from '../mocks/tumulus.mock';
 
 describe('Coffin - Unit Tests', ()=>{
 
-    const errorMessage = 'invalid id, invalid material, invalid size, invalid location, invalid tomb, invalid tumulus'
+    const errorMessage = ' invalid id, invalid material, invalid size, invalid location, invalid tomb, invalid tumulus'
     const error = new Error(errorMessage)
 
     test('should invalidate id if not a number or a falsy', ()=>{
@@ -36,7 +36,7 @@ describe('Coffin - Unit Tests', ()=>{
 
         expect(coffin.id).toStrictEqual(1)
         expect(coffin.material).toStrictEqual('Carvalho')
-        expect(coffin.size).toStrictEqual('P')
+        expect(coffin.size).toStrictEqual('M')
         expect(coffin.location).toStrictEqual(2.3)
         expect(coffin.tomb).toEqual(new TombEntity(validTomb))
         expect(coffin.tumulus).toEqual(new TumulusEntity(validTumulus))

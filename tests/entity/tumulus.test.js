@@ -1,4 +1,4 @@
-import{test,describe,expect} from '@jest/globals';
+import { test, describe, expect } from '@jest/globals';
 import { TumulusEntity } from '../../src/entity/tumulus';
 import { validTumulus } from '../mocks/tumulus.mock';
 import { GraveDiggerEntity } from '../../src/entity/grave-digger';

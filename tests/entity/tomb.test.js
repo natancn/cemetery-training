@@ -1,4 +1,4 @@
-import{test, describe, expect} from '@jest/globals';
+import { test, describe, expect } from '@jest/globals';
 import { TombEntity } from '../../src/entity/tomb';
 import { validTomb } from '../mocks/tomb.mock';
 import { validClient } from '../mocks/client.mocks';
@@ -8,7 +8,7 @@ describe('Tomb - Unit Tests', ()=>{
     const errorMessage = ' invalid id, invalid floors, invalid haunt, invalid size, invalid location, invalid client'
     const error = new Error(errorMessage)
 
-    test('should invalidade id if is not a number or a falsy value', ()=>{
+    test('should invalidate id if is not a number or a falsy value', ()=>{
         expect(()=> new TombEntity({})).toThrow(error)
         expect(()=> new TombEntity({id: ' '})).toThrow(error)
     });
