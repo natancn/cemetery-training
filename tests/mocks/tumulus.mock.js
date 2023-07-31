@@ -1,5 +1,5 @@
-import { GraveDiggerEntity } from "../../src/entity/grave-digger";
-import { validGraveDigger } from "./grave-digger.mocks";
+import { GraveDiggerEntity } from '../../src/entity/grave-digger';
+import { validGraveDigger } from './grave-digger.mocks';
 import { ClientEntity } from "../../src/entity/client";
 import { validClient } from "./client.mocks";
 

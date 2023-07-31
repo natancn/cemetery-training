@@ -1,6 +1,6 @@
-import { TombEntity } from "../../src/entity/tomb";
-import { validTomb } from "./tomb.mock";
-import { TumulusEntity } from "../../src/entity/tumulus";
+import { TombEntity } from '../../src/entity/tomb';
+import { validTomb } from './tomb.mock';
+import { TumulusEntity } from '../../src/entity/tumulus';
 import { validTumulus } from "./tumulus.mock";
 
 export const validCoffin ={

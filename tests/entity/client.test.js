@@ -1,4 +1,4 @@
-import{ test, describe, expect } from '@jest/globals';
+import { test, describe, expect } from '@jest/globals';
 import { ClientEntity } from '../../src/entity/client';
 import { validClient } from '../mocks/client.mocks';
 
