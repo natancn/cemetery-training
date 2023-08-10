@@ -9,6 +9,4 @@ const client = mysql2.createPool({
   port: process.env.DB_PORT,
 });
 
-
-
 export default client;

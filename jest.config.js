@@ -18,8 +18,5 @@ export default {
     },
   },
   maxWorkers: '50%',
-  testTimeout: 60000,
-  fakeTimers: {
-    enableGlobally: true,
-  },
+  testTimeout: 15000,
 };
