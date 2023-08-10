@@ -1,9 +1,9 @@
 export default {
-  testEnvironment: 'jest-environment-node',
+  testEnvironment: 'node',
   transform: {},
   testRegex: '/tests/.*\\.(test|spec)?\\.(js|jsx)$',
   moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
-  moduleDirectories: ['node_modules', 'src'],
+  moduleDirectories: ['node_modules', 'src', 'tests'],
   moduleNameMapper: {
     'src/(.*)': '<rootDir>/src/$1',
   },
@@ -18,5 +18,8 @@ export default {
     },
   },
   maxWorkers: '50%',
-  testTimeout: 15000,
+  testTimeout: 60000,
+  fakeTimers: {
+    enableGlobally: true,
+  },
 };

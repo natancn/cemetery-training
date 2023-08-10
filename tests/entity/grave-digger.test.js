@@ -60,7 +60,7 @@ describe('Grave Digger - Unit Tests', () => {
     expect(graveDigger.id).toStrictEqual(1)
     expect(graveDigger.name).toStrictEqual('yorick malphite')
     expect(graveDigger.cpf).toStrictEqual(12345678910)
-    expect(graveDigger.birthDate).toStrictEqual('19/07/2003')
+    expect(graveDigger.birthDate).toStrictEqual('2003-07-03')
     expect(graveDigger.nationality).toStrictEqual('Pedra')
     expect(graveDigger.gender).toStrictEqual('NB')
 

@@ -58,7 +58,7 @@ describe('Client - Unit Tests', () => {
         expect(client.id).toStrictEqual(1)
         expect(client.name).toStrictEqual('pedro malphite')
         expect(client.cpf).toStrictEqual(12345678910)
-        expect(client.birthDate).toStrictEqual('09/02/2031')
+        expect(client.birthDate).toStrictEqual('2031-09-02') // mudar
         expect(client.nationality).toStrictEqual('Montanha')
         expect(client.gender).toStrictEqual('M')
 

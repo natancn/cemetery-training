@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "NODE_OPTIONS='--experimental-vm-modules' npx jest --watchAll --no-cache --detectOpenHandles --runInBand --config ./jest.config.js",
-    "test:cov": "NODE_OPTIONS='--experimental-vm-modules' npx jest --no-cache --detectOpenHandles --runInBand --config ./jest.config.js --coverage"
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --watch --config ./jest.config.js",
+    "test:cov": "NODE_OPTIONS='--experimental-vm-modules' jest --no-cache --detectOpenHandles --runInBand --config ./jest.config.js --coverage"
   },
   "keywords": [],
   "author": "",

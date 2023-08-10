@@ -42,7 +42,7 @@ export class CorpseEntity {
     }
     if (
       !this.gender ||
-      (this.gender !== 'M' && this.gender !== 'F' && this.gender !== 'BN')
+      (this.gender !== 'M' && this.gender !== 'F' && this.gender !== 'NB')
     ) {
       errors.push(' invalid gender');
     }

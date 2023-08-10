@@ -17,7 +17,7 @@ export class GraveDiggerEntity {
   }
 
   validator() {
-    const errors = []
+    const errors = [];
 
     if (!this.id || !(typeof this.id === 'number')) {
       errors.push('invalid id');
@@ -55,8 +55,8 @@ export class GraveDiggerEntity {
       errors.push('invalid gender');
     }
 
-    if(errors.length > 0) {
-      throw new Error(errors.join())
+    if (errors.length > 0) {
+      throw new Error(errors.join());
     }
 
     return;
