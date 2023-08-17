@@ -16,7 +16,6 @@ export class GraveDiggerRepository {
     )`;
 
     const [result] = await this.connection.query(sql);
-    console.log(result);
     return result.insertId;
   }
 
@@ -25,7 +24,6 @@ export class GraveDiggerRepository {
       SELECT * FROM grave_digger WHERE id = ${this.connection.escape(id)}
       `;
     const [result] = await this.connection.query(sql);
-    console.log(result);
     return result[0];
   }
   async findAll() {
@@ -33,7 +31,6 @@ export class GraveDiggerRepository {
     SELECT * FROM grave_digger
     `;
     const [result] = await this.connection.query(sql);
-    console.log(result);
     return result;
   }
   async update(GraveDiggerEntity) {
@@ -42,19 +39,19 @@ export class GraveDiggerRepository {
       GraveDiggerEntity.name,
     )}, 
     cpf = ${this.connection.escape(GraveDiggerEntity.cpf)},
-    birth_Date = ${this.connection.escape(GraveDiggerEntity.birthDate)},
+    birth_date = ${this.connection.escape(GraveDiggerEntity.birthDate)},
     nationality = ${this.connection.escape(GraveDiggerEntity.nationality)},
     gender = ${this.connection.escape(GraveDiggerEntity.gender)}
      WHERE id = ${this.connection.escape(GraveDiggerEntity.id)}
     `;
     const [result] = await this.connection.query(sql);
-    console.log(result);
+    return result.changedRows === 1;
   }
   async delete(id) {
     const sql = `
     DELETE FROM grave_digger WHERE id = ${this.connection.escape(id)}
     `;
     const [result] = await this.connection.query(sql);
-    return result;
+    return result.affectedRows === 1;
   }
 }

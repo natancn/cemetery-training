@@ -17,7 +17,6 @@ export class ClientRepository {
       `;
 
     const [result] = await this.connection.query(sql);
-    console.log(result);
     return result.insertId;
   }
 
@@ -27,7 +26,6 @@ export class ClientRepository {
       SELECT * FROM client WHERE id = ${this.connection.escape(id)}
       `;
     const [result] = await this.connection.query(sql);
-    console.log(result);
     return result[0];
   }
 
@@ -52,7 +50,7 @@ export class ClientRepository {
      WHERE id = ${this.connection.escape(clientEntity.id)}
     `;
     const [result] = await this.connection.query(sql);
-    console.log(result);
+    return result.changedRows === 1;
   }
 
   // TODO

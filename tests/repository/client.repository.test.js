@@ -18,18 +18,20 @@ describe('Client Repository - Unit Tests', () => {
     expect(client.id).toStrictEqual(clientId)
     expect(client.name).toStrictEqual('pedro malphite')
     expect(client.cpf).toStrictEqual(12345678910)
-    expect(client.birthDate).toStrictEqual('2031-09-02')
+    expect(client.birth_date).toStrictEqual(new Date('2031-09-02 00:00:000'))
     expect(client.nationality).toStrictEqual('Montanha')
     expect(client.gender).toStrictEqual('M')
 
   });
   test('should update client in database', async() =>{
     const clientUp = new ClientEntity({id: clientId, name: "let carrorson", cpf: 84578745612, birthDate:"1999-08-09", nationality: "Peruano", gender: "M"})
-    const client = await repositoryClient.update(clientUp)
+    const result = await repositoryClient.update(clientUp)
+    expect(result).toBeTruthy()
+    const client = await repositoryClient.findById(clientId)
     expect(client.id).toStrictEqual(clientId)
     expect(client.name).toStrictEqual('let carrorson')
     expect(client.cpf).toStrictEqual(84578745612)
-    expect(client.birthDate).toStrictEqual('1999-08-09')
+    expect(client.birth_date).toStrictEqual(new Date('1999-08-09 00:00:000'))
     expect(client.nationality).toStrictEqual('Peruano')
     expect(client.gender).toStrictEqual('M')
 
