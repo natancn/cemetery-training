@@ -10,8 +10,8 @@ export class TumulusRepository {
       null,
       ${this.connection.escape(tumulusEntity.deepness)},
       ${this.connection.escape(tumulusEntity.tombstone)},
-      ${this.connection.escape(tumulusEntity.client_id)},
-      ${this.connection.escape(tumulusEntity.grave_digger_id)},
+      ${this.connection.escape(tumulusEntity.client.id)},
+      ${this.connection.escape(tumulusEntity.gravedigger.id)},
       ${this.connection.escape(tumulusEntity.location)}
     )
   `;
@@ -29,7 +29,6 @@ export class TumulusRepository {
     SELECT * FROM tumulus
     `;
     const [result] = await this.connection.query(sql);
-    console.log(result);
     return result;
   }
   async update(tumulusEntity) {
@@ -37,10 +36,10 @@ export class TumulusRepository {
     UPDATE tumulus SET tombstone = ${this.connection.escape(
       tumulusEntity.tombstone,
     )},
-    client = ${this.connection.escape(tumulusEntity.client_id)},
+    client_id = ${this.connection.escape(tumulusEntity.client.id)},
     deepness = ${this.connection.escape(tumulusEntity.deepness)},
     location = ${this.connection.escape(tumulusEntity.location)},
-    grave_digger_id = ${this.connection.escape(tumulusEntity.grave_digger_id)},
+    grave_digger_id = ${this.connection.escape(tumulusEntity.gravedigger.id)},
     tombstone = ${this.connection.escape(tumulusEntity.tombstone)} 
     `;
     const [result] = await this.connection.query(sql);
@@ -51,4 +50,4 @@ export class TumulusRepository {
     const [result] = await this.connection.query(sql);
     return result;
   }
-}
+};
