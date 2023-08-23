@@ -1,5 +1,5 @@
 
-import { ClientEntity } from '../entity/client';
+import { ClientEntity } from '../entity/client.js';
 
 export class ClientService {
   constructor(repositoryClient) {
