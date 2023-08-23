@@ -3,7 +3,7 @@ import { validTomb } from './tomb.mock';
 import { TumulusEntity } from '../../src/entity/tumulus';
 import { validTumulus } from "./tumulus.mock";
 
-export const validCoffin ={
+export const validCoffin = {
     id: 1,
     material: 'Carvalho',
     size: 'M',

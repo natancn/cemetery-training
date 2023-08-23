@@ -3,7 +3,7 @@ import { ClientEntity } from '../../src/entity/client';
 import { validClient } from '../mocks/client.mocks';
 
 describe('Client - Unit Tests', () => {
-    const errorMessage = 'invalid id,invalid name,invalid cpf,invalid birth date,invalid nationality,invalid gender'
+    const errorMessage = 'invalid name,invalid cpf,invalid birth date,invalid nationality,invalid gender'
     const error = new Error(errorMessage)
 
 

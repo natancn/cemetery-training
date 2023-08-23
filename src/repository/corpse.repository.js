@@ -35,6 +35,7 @@ export class CorpseRepository {
     gender =  ${this.connection.escape(CorpseEntity.gender)},
     nationality =  ${this.connection.escape(CorpseEntity.nationality)},
     coffin_id = ${this.connection.escape(CorpseEntity.coffin_id)}
+    WHERE id = ${this.connection.escape(CorpseEntity.id)}
     `;
     const [result] = await this.connection.query(sql);
     return result.changedRows === 1;

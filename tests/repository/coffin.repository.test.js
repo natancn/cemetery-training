@@ -35,9 +35,9 @@ describe('Coffin Repository - Unit Tests',()=>{
   beforeAll(async()=>{
     const _client = new ClientEntity(validClient)
     const result = await repositoryClient.insert(_client)
-    _client.id = result
+    client.id = result
 
-    const tombMock = {...validTomb, client:_client}
+    const tombMock = {...validTomb, client}
     const _tomb = new TombEntity(tombMock)
     const result1 = await repositoryTomb.insert(_tomb)
     tomb.id = result1
@@ -46,16 +46,17 @@ describe('Coffin Repository - Unit Tests',()=>{
     const result2 = await repositoryGraveDigger.insert(_graveDigger);
     gravedigger.id = result2
 
-    const tumulusMock = {...validTumulus, client: _client, gravedigger}
+    const tumulusMock = {...validTumulus, client, gravedigger}
     const _tumulus = new TumulusEntity(tumulusMock)
     const result3 = await repositoryTumulus.insert(_tumulus)
     tumulus.id = result3
   });
 
   afterAll(async()=>{
-    await repositoryClient.delete(client.id)
     await repositoryTumulus.delete(tumulus.id)
+    await repositoryGraveDigger.delete(gravedigger.id)
     await repositoryTomb.delete(tomb.id)
+    await repositoryClient.delete(client.id)
   })
 
   test('should insert a new coffin in database', async()=>{

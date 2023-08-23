@@ -38,7 +38,8 @@ export class CoffinRepository {
     size = ${this.connection.escape(CoffinEntity.size)},
     location = ${this.connection.escape(CoffinEntity.location)},
     tomb_id = ${this.connection.escape(CoffinEntity.tomb.id)},
-    tumulus_id = ${this.connection.escape(CoffinEntity.tumulus.id)}`;
+    tumulus_id = ${this.connection.escape(CoffinEntity.tumulus.id)}
+    WHERE id = ${this.connection.escape(CoffinEntity.id)}`;
     const [result] = await this.connection.query(sql);
     return result.changedRows === 1;
   }

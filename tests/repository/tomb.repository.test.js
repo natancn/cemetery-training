@@ -23,7 +23,7 @@ describe('Tomb Repository - Unit Tests', ()=>{
     await repositoryClient.delete(client.id)
   });
   test('should insert a new tomb in database', async()=>{
-    const tombMock = {...validTomb,client}
+    const tombMock = {...validTomb, client }
     const tomb = new TombEntity(tombMock);
     const result = await repositoryTomb.insert(tomb);
     expect(result).toBeTruthy()

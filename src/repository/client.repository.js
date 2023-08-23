@@ -35,7 +35,6 @@ export class ClientRepository {
     SELECT * FROM client
     `;
     const [result] = await this.connection.query(sql);
-    console.log(result);
     return result;
   }
 
@@ -53,12 +52,11 @@ export class ClientRepository {
     return result.changedRows === 1;
   }
 
-  // TODO
   async delete(id) {
     const sql = `
     DELETE FROM client WHERE id = ${this.connection.escape(id)}
     `;
     const [result] = await this.connection.query(sql);
-    return result;
+    return result.affectedRows === 1;
   }
 }

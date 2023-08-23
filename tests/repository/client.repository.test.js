@@ -40,7 +40,6 @@ describe('Client Repository - Unit Tests', () => {
   test('should delete client in database', async () =>{
     const result =  await repositoryClient.delete(clientId)
     expect(result).toBeTruthy()
-  
   });
 
 });

@@ -41,6 +41,7 @@ export class TumulusRepository {
     location = ${this.connection.escape(tumulusEntity.location)},
     grave_digger_id = ${this.connection.escape(tumulusEntity.gravedigger.id)},
     tombstone = ${this.connection.escape(tumulusEntity.tombstone)} 
+    WHERE id = ${this.connection.escape(tumulusEntity.id)}
     `;
     const [result] = await this.connection.query(sql);
     return result.changedRows === 1;

@@ -41,9 +41,9 @@ describe('Corpse Repository - Unit Tests',()=>{
   beforeAll(async()=>{
     const _client = new ClientEntity(validClient)
     const result = await repositoryClient.insert(_client)
-    _client.id = result
+    client.id = result
 
-    const tombMock = {...validTomb, client:_client}
+    const tombMock = {...validTomb, client}
     const _tomb = new TombEntity(tombMock)
     const result1 = await repositoryTomb.insert(_tomb)
     tomb.id = result1
@@ -52,23 +52,23 @@ describe('Corpse Repository - Unit Tests',()=>{
     const result2 = await repositoryGraveDigger.insert(_graveDigger);
     gravedigger.id = result2
 
-    const tumulusMock = {...validTumulus, client: _client, gravedigger}
+    const tumulusMock = {...validTumulus, client, gravedigger}
     const _tumulus = new TumulusEntity(tumulusMock)
     const result3 = await repositoryTumulus.insert(_tumulus)
     tumulus.id = result3
 
-    const coffinMock ={...validCoffin,client:_client,tumulus,gravedigger,tomb}
+    const coffinMock ={...validCoffin,client,tumulus,gravedigger,tomb}
     const _coffin = new CoffinEntity(coffinMock)
     const result4 = await repositoryCoffin.insert(_coffin)
     coffin.id = result4
   });
 
   afterAll(async()=>{
-    await repositoryClient.delete(client.id)
     await repositoryCoffin.delete(coffin.id)
     await repositoryTomb.delete(tomb.id)
-    await repositoryGraveDigger.delete(gravedigger.id)
     await repositoryTumulus.delete(tumulus.id)
+    await repositoryClient.delete(client.id)
+    await repositoryGraveDigger.delete(gravedigger.id)
   });
   test('should inser a corpse in database', async()=>{
     const corpseMock = {...validCorpse,validCoffin}
@@ -81,12 +81,12 @@ describe('Corpse Repository - Unit Tests',()=>{
     const corpse = await repositoryCorpse.findById(corpseId)
     expect(corpse.id).toStrictEqual(corpseId)
     expect(corpse.name).toStrictEqual('Figaro Souza')
-    expect(corpse.datamortis).toStrictEqual(new Date('1999-02-23'))
+    expect(corpse.datamortis).toStrictEqual(new Date('1999-02-23 00:00:000'))
     expect(corpse.nationality).toStrictEqual('Inglês')
     expect(corpse.gender).toStrictEqual('M')
   });
   test('should update corpse in database',async()=>{
-    const corpseUp = new CorpseEntity({id:corpseId,name:'Senninha',datamortis:'1888-04-05',nationality:'Peruano',gender:'F',coffin})
+    const corpseUp = new CorpseEntity({id:corpseId,name:'Senninha',datamortis:'1888-04-05 00:00:000',nationality:'Peruano',gender:'F',coffin})
     const result = await repositoryCorpse.update(corpseUp)
     const corpse = await repositoryCorpse.findById(corpseId)
     expect(result).toBeTruthy()

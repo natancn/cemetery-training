@@ -38,6 +38,7 @@ export class TombRepository {
     location = ${this.connection.escape(TombEntity.location)},
     haunted = ${this.connection.escape(TombEntity.haunted)},
     client_id = ${this.connection.escape(TombEntity.client.id)}
+    WHERE id = ${this.connection.escape(TombEntity.id)}
     `;
     const [result] = await this.connection.query(sql);
     return result.changedRows === 1;

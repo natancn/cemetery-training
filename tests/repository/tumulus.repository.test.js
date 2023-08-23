@@ -54,7 +54,7 @@ describe('Tumulus Repository - Unit Tests',()=>{
 
   });
   test('should update tumulus in database', async()=>{
-    const tumulusUp = new TumulusEntity({id: tumulusId, deepness: -5, location: 12, tombstone: 'Ivory', gravedigger, client})
+    const tumulusUp = new TumulusEntity({id:tumulusId,deepness:-5,location:12,tombstone:'Ivory',gravedigger,client})
     const result = await repositoryTumulus.update(tumulusUp)
     const tumulus = await repositoryTumulus.findById(tumulusId)
     expect(result).toBeTruthy()
