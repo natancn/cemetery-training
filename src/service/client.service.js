@@ -90,12 +90,12 @@ export class ClientService {
   async delete(id) {
     try {
       const result = await this.repositoryClient.delete(id);
-      if (!result)
+      if (!result) {
         return {
           error: true,
           errorMessage: 'he is here, do something',
         };
-      else {
+      } else {
         return result;
       }
     } catch (error) {

@@ -70,7 +70,7 @@ routes.post('/', async (req, res) => {
   }
 })
 
-// TODO
+// atualiza
 routes.put('/:id', async(req,res)=>{
   try {
     const {
