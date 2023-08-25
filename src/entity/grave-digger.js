@@ -7,7 +7,7 @@ export class GraveDiggerEntity {
   gender;
 
   constructor({ id, name, cpf, birthDate, nationality, gender }) {
-    this.id = id;
+    this.id = id ?? null;
     this.name = name;
     this.cpf = cpf;
     this.birthDate = birthDate;
@@ -18,10 +18,6 @@ export class GraveDiggerEntity {
 
   validator() {
     const errors = [];
-
-    if (!this.id || !(typeof this.id === 'number')) {
-      errors.push('invalid id');
-    }
 
     if (
       !this.name ||

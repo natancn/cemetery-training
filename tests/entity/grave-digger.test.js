@@ -3,7 +3,7 @@ import { GraveDiggerEntity } from '../../src/entity/grave-digger';
 import { validGraveDigger } from '../mocks/grave-digger.mocks';
 
 describe('Grave Digger - Unit Tests', () => {
-  const errorMessage = 'invalid id,invalid name,invalid cpf,invalid birth date,invalid nationality,invalid gender'
+  const errorMessage = 'invalid name,invalid cpf,invalid birth date,invalid nationality,invalid gender'
   const error = new Error(errorMessage)
 
 

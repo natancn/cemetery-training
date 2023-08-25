@@ -3,9 +3,9 @@ export default {
   transform: {},
   testRegex: '/tests/.*\\.(test|spec)?\\.(js|jsx)$',
   moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
-  moduleDirectories: ['node_modules', 'src', 'tests'],
+  moduleDirectories: ['node_modules', 'src'],
   moduleNameMapper: {
-    'src/(.*)': '<rootDir>/src/$1',
+    '^/src/(.*)': '<rootDir>/src/$1',
   },
   coverageDirectory: 'coverage',
   coverageReporters: ['json', 'text', 'lcov', 'clover'],

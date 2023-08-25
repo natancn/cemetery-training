@@ -4,14 +4,14 @@ export class GraveDiggerService {
   constructor(repositoryGraveDigger) {
     this.repositoryGraveDigger = repositoryGraveDigger;
   }
-  async create(GraveDiggerEntity) {
+  async create(graveDiggerEntity) {
     try {
       const graveDigger = new GraveDiggerEntity({
-        name: GraveDiggerEntity.name,
-        cpf: GraveDiggerEntity.cpf,
-        birthDate: GraveDiggerEntity.birthDate,
-        nationality: GraveDiggerEntity.birthDate,
-        gender: GraveDiggerEntity.gender,
+        name: graveDiggerEntity.name,
+        cpf: graveDiggerEntity.cpf,
+        birthDate: graveDiggerEntity.birthDate,
+        nationality: graveDiggerEntity.nationality,
+        gender: graveDiggerEntity.gender,
       });
       const graveDiggerId = await this.repositoryGraveDigger.insert(
         graveDigger,

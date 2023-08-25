@@ -2,7 +2,6 @@ import { describe, test, expect } from '@jest/globals';
 import { app } from '../../src/presentation/app';
 import { validClient } from '../mocks/client.mocks';
 import request from 'supertest';
-import { ClientEntity } from '../../src/entity/client';
 
 describe('Client Controller - Unit Tests', () => {
   let client = {}

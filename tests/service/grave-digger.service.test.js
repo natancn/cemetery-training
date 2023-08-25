@@ -1,7 +1,7 @@
 import { describe, test, expect } from '@jest/globals';
-import connection from '../../src/repository/grave-digger.repository';
-import { GraveDiggerRepository } from "../../src/repository/grave-digger.repository";
-import { GraveDiggerService } from "../../src/service/grave-digger.service";
+import connection from '../../src/database/mysql-connection';
+import { GraveDiggerService } from '../../src/service/grave-digger.service';
+import { GraveDiggerRepository } from '../../src/repository/grave-digger.repository';
 import { validGraveDigger } from "../mocks/grave-digger.mocks";
 import { GraveDiggerEntity } from "../../src/entity/grave-digger";
 
@@ -13,7 +13,7 @@ describe('Gravedigger Service - Unit Tests',()=>{
     const createdGraveDigger = await service.create(validGraveDigger);
     expect(createdGraveDigger.name).toEqual('yorick malphite');
     expect(createdGraveDigger.cpf).toEqual(12345678910);
-    expect(createdGraveDigger.birth_date).toEqual('2003-07-03');
+    expect(createdGraveDigger.birth_date).toEqual(new Date('2003-07-03 00:00:000'));
     expect(createdGraveDigger.nationality).toEqual('Pedra');
     expect(createdGraveDigger.gender).toEqual('NB');
     graveDigger = createdGraveDigger
@@ -36,5 +36,21 @@ describe('Gravedigger Service - Unit Tests',()=>{
     expect(result.birth_date).toStrictEqual(new Date('2008-02-01 00:00:000'))
     expect(result.nationality).toStrictEqual('Vietnamita')
     expect(result.gender).toStrictEqual('M')
+    graveDigger = result
+  })
+  test('should find all in gravedigger', async()=>{
+    const graveDiggers = await service.findAll()
+    expect(graveDiggers).toEqual([{
+      id: graveDigger.id,
+      name: graveDigger.name,
+      cpf: graveDigger.cpf,
+      birth_date:graveDigger.birth_date,
+      nationality: graveDigger.nationality,
+      gender: graveDigger.gender
+    }])
+  })
+  test('should delete client xd', async()=>{
+    const result = await service.delete(graveDigger.id)
+    expect(result).toBeTruthy()
   })
 })

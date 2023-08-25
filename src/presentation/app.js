@@ -1,5 +1,6 @@
 import express from 'express';
 import ClientController from './controller/client.controller.js';
+import GraveDiggerController from './controller/grave-digger.controller.js';
 
 export class App {
   app;
@@ -16,6 +17,7 @@ export class App {
 
   routes() {
     this.app.use('/clients', ClientController);
+    this.app.use('/gravediggers', GraveDiggerController);
   }
 
   start(port) {
