@@ -6,7 +6,7 @@ export class TumulusEntity {
   gravedigger;
   client;
   constructor({ id, deepness, location, tombstone, gravedigger, client }) {
-    this.id = id;
+    this.id = id ?? null;
     this.deepness = deepness;
     this.location = location;
     this.tombstone = tombstone;
@@ -18,9 +18,9 @@ export class TumulusEntity {
   validator() {
     const errors = [];
 
-    if (!this.id || !(typeof this.id === 'number')) {
-      errors.push(' invalid id');
-    }
+    // if (!this.id || !(typeof this.id === 'number')) {
+    //   errors.push(' invalid id');
+    // }
     if (
       !this.deepness ||
       !(typeof this.deepness === 'number') ||
