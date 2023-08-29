@@ -64,4 +64,4 @@ export class CorpseEntity {
       coffin: this.coffin,
     });
   }
-};
+}

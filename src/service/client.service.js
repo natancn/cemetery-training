@@ -1,4 +1,3 @@
-
 import { ClientEntity } from '../entity/client.js';
 
 export class ClientService {

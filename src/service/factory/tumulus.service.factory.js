@@ -6,17 +6,21 @@ import { ClientService } from '../../service/client.service.js';
 import { GraveDiggerRepository } from '../../repository/grave-digger.repository.js';
 import { GraveDiggerService } from '../grave-digger.service.js';
 
-export class TumulusServiceFactory{
-  static getInstance(){
-    const clientRepository = new ClientRepository(connection)
-    const clientService = new ClientService(clientRepository)
-    
-    const graveDiggerRepository = new GraveDiggerRepository(connection)
-    const graveDiggerService = new GraveDiggerService(graveDiggerRepository)
+export class TumulusServiceFactory {
+  static getInstance() {
+    const clientRepository = new ClientRepository(connection);
+    const clientService = new ClientService(clientRepository);
 
-    const repository = new TumulusRepository(connection)
-    const service = new TumulusService(repository, clientService, graveDiggerService)
-    
-    return service
+    const graveDiggerRepository = new GraveDiggerRepository(connection);
+    const graveDiggerService = new GraveDiggerService(graveDiggerRepository);
+
+    const repository = new TumulusRepository(connection);
+    const service = new TumulusService(
+      repository,
+      clientService,
+      graveDiggerService,
+    );
+
+    return service;
   }
 }

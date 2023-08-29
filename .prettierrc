@@ -2,8 +2,5 @@
   "singleQuote": true,
   "trailingComma": "all",
   "semi": true,
-  "arrowParens": "avoid",
-  "rangeStart": 0,
-  "rangeEnd": 120,
-  "endOfLine": "lf"
+  "arrowParens": "avoid"
 }

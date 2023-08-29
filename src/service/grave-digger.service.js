@@ -13,9 +13,8 @@ export class GraveDiggerService {
         nationality: graveDiggerEntity.nationality,
         gender: graveDiggerEntity.gender,
       });
-      const graveDiggerId = await this.repositoryGraveDigger.insert(
-        graveDigger,
-      );
+      const graveDiggerId =
+        await this.repositoryGraveDigger.insert(graveDigger);
       return this.findById(graveDiggerId);
     } catch (error) {
       return {
@@ -49,9 +48,8 @@ export class GraveDiggerService {
         nationality: graveDiggerData.nationality,
         gender: graveDiggerData.gender,
       });
-      const graveDigger = await this.repositoryGraveDigger.update(
-        graveDiggerEntity,
-      );
+      const graveDigger =
+        await this.repositoryGraveDigger.update(graveDiggerEntity);
       if (!graveDigger) {
         return {
           error: true,

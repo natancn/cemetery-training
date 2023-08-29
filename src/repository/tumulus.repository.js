@@ -36,10 +36,10 @@ export class TumulusRepository {
     UPDATE tumulus SET tombstone = ${this.connection.escape(
       tumulusEntity.tombstone,
     )},
-    client_id = ${this.connection.escape(tumulusEntity.client.id)},
-    deepness = ${this.connection.escape(tumulusEntity.deepness)},
-    location = ${this.connection.escape(tumulusEntity.location)},
-    grave_digger_id = ${this.connection.escape(tumulusEntity.gravedigger.id)},
+      deepness = ${this.connection.escape(tumulusEntity.deepness)},
+      location = ${this.connection.escape(tumulusEntity.location)},
+      grave_digger_id = ${this.connection.escape(tumulusEntity.gravedigger.id)},
+      client_id = ${this.connection.escape(tumulusEntity.client.id)},
     tombstone = ${this.connection.escape(tumulusEntity.tombstone)} 
     WHERE id = ${this.connection.escape(tumulusEntity.id)}
     `;
@@ -51,4 +51,4 @@ export class TumulusRepository {
     const [result] = await this.connection.query(sql);
     return result;
   }
-};
+}

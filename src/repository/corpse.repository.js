@@ -45,4 +45,4 @@ export class CorpseRepository {
     const [result] = await this.connection.query(sql);
     return result;
   }
-};
+}

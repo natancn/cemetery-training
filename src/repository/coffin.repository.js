@@ -48,4 +48,4 @@ export class CoffinRepository {
     const [result] = await this.connection.query(sql);
     return result;
   }
-};
+}

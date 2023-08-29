@@ -61,4 +61,4 @@ export class CoffinEntity {
       tumulus: this.tumulus,
     });
   }
-};
+}

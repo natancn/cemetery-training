@@ -14,120 +14,101 @@ const routes = Router();
 // deletar -> delete
 // retornar informações sobre as rotas - options
 
-
-routes.get('/', async  (_, res) => {
-  const service = ClientServiceFactory.getInstance()
-  const clients = await service.findAll()
-  return res.status(200).json(clients)
+routes.get('/', async (_, res) => {
+  const service = ClientServiceFactory.getInstance();
+  const clients = await service.findAll();
+  return res.status(200).json(clients);
 });
 
 // http://localhost:3000/clients/:id -> http://localhost:3000/clients/1
 // :id = pathParam | : = flag p indicar o inicio de um parametro
-routes.get('/:id', async  (req, res) => {
-  const service = ClientServiceFactory.getInstance()
-  const { id } = req.params
+routes.get('/:id', async (req, res) => {
+  const service = ClientServiceFactory.getInstance();
+  const { id } = req.params;
 
-  const client = await service.findById(id)
+  const client = await service.findById(id);
 
-  if(client['error']) {
-    return res.status(404).json(client)
+  if (client['error']) {
+    return res.status(404).json(client);
   }
 
-  return res.status(200).json(client)
+  return res.status(200).json(client);
 });
 
 // http://localhost:3000/clients -> retornar o client criado
 routes.post('/', async (req, res) => {
   try {
-    const {
-      name,
-      cpf,
-      birthDate,
-      nationality,
-      gender,
-    } = req.body
+    const { name, cpf, birthDate, nationality, gender } = req.body;
 
-  
     const client = new ClientEntity({
       name,
       cpf,
       birthDate,
       nationality,
       gender,
-    })
+    });
 
-  
-    const service = ClientServiceFactory.getInstance()
-    const createdClient = await service.create(client)
-  
-    if(createdClient['error']) {
-      return res.status(500).json({ message: createdClient['error'] })
+    const service = ClientServiceFactory.getInstance();
+    const createdClient = await service.create(client);
+
+    if (createdClient['error']) {
+      return res.status(500).json({ message: createdClient['error'] });
     }
-  
-    return res.status(201).json(createdClient)
+
+    return res.status(201).json(createdClient);
   } catch (error) {
-    return res.status(500).json({ message: error.message })
+    return res.status(500).json({ message: error.message });
   }
-})
+});
 
 // atualiza
-routes.put('/:id', async(req,res)=>{
+routes.put('/:id', async (req, res) => {
   try {
-    const {
-    name,
-    cpf,
-    birthDate,
-    nationality,
-    gender,
-  } = req.body
-  const { id } = req.params
+    const { name, cpf, birthDate, nationality, gender } = req.body;
+    const { id } = req.params;
 
-  const client = new ClientEntity({
-    name,
-    cpf,
-    birthDate,
-    nationality,
-    gender,
-  })
-    
-  const service = ClientServiceFactory.getInstance()
-  const updatedClient = await service.update(id, client)
-  if(updatedClient['error']){
-    return res.status(500).json({message: updatedClient['errorMessage']})
-  }
-  return res.status(200).json(updatedClient)
+    const client = new ClientEntity({
+      name,
+      cpf,
+      birthDate,
+      nationality,
+      gender,
+    });
+
+    const service = ClientServiceFactory.getInstance();
+    const updatedClient = await service.update(id, client);
+    if (updatedClient['error']) {
+      return res.status(500).json({ message: updatedClient['errorMessage'] });
+    }
+    return res.status(200).json(updatedClient);
   } catch (error) {
-    return res.status(500).json({ message: error.message})
-    
+    return res.status(500).json({ message: error.message });
   }
-
-})
+});
 
 // http://localhost:3000/clients/:id -> deletar o client
 
 // TODO
-routes.delete('/:id',async(req,res)=>{
+routes.delete('/:id', async (req, res) => {
   try {
-    const { id } = req.params
-    const service = ClientServiceFactory.getInstance()
-    const findClient = await service.findById(id)
-    
-    if(findClient['error']){
-      return res.status(404).json({message: findClient['errorMessage']})
+    const { id } = req.params;
+    const service = ClientServiceFactory.getInstance();
+    const findClient = await service.findById(id);
+
+    if (findClient['error']) {
+      return res.status(404).json({ message: findClient['errorMessage'] });
     }
 
-    const deleteClient = await service.delete(id)
-    if(deleteClient['error']){
-      return res.status(500).json({message: deleteClient['errorMessage']})
+    const deleteClient = await service.delete(id);
+    if (deleteClient['error']) {
+      return res.status(500).json({ message: deleteClient['errorMessage'] });
     }
 
-    return res.status(200).json()
+    return res.status(200).json();
   } catch (error) {
-    return res.status(500).json({ message: error.message})
+    return res.status(500).json({ message: error.message });
   }
-  
-  
-})
+});
 // http://localhost:3000/clients/:id -> deletar o client
 
 export default routes;

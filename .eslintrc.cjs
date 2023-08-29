@@ -7,6 +7,7 @@ module.exports = {
   extends: ['eslint:recommended', 'plugin:prettier/recommended'],
   root: true,
   env: {
+    es2024: true,
     node: true,
     jest: true,
   },
