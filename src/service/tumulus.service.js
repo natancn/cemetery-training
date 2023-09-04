@@ -68,7 +68,7 @@ export class TumulusService {
       if (!tumulus) {
         return {
           error: true,
-          errorMessage: 'tumulus not updates',
+          errorMessage: 'tumulus not updated',
         };
       }
       return this.findById(tumulusEntity.id);

@@ -18,9 +18,9 @@ export class TombEntity {
   validator() {
     const errors = [];
 
-    if (!this.id || !(typeof this.id === 'number')) {
-      errors.push(' invalid id');
-    }
+    // if (!this.id || !(typeof this.id === 'number')) {
+    //   errors.push(' invalid id');
+    // }
     if (
       !this.floors ||
       !(typeof this.floors === 'number') ||

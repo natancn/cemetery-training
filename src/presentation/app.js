@@ -2,6 +2,7 @@ import express from 'express';
 import ClientController from './controller/client.controller.js';
 import GraveDiggerController from './controller/grave-digger.controller.js';
 import TumulusController from './controller/tumulus.controller.js';
+import TombController from './controller/tomb.controller.js';
 
 export class App {
   app;
@@ -20,6 +21,7 @@ export class App {
     this.app.use('/clients', ClientController);
     this.app.use('/gravediggers', GraveDiggerController);
     this.app.use('/tumulus', TumulusController);
+    this.app.use('/tomb', TombController);
   }
 
   start(port) {

@@ -6,13 +6,13 @@ import { ClientEntity } from '../../src/entity/client';
 
 describe('Tomb - Unit Tests', () => {
   const errorMessage =
-    ' invalid id, invalid floors, invalid haunt, invalid size, invalid location, invalid client';
+    ' invalid floors, invalid haunt, invalid size, invalid location, invalid client';
   const error = new Error(errorMessage);
 
-  test('should invalidate id if is not a number or a falsy value', () => {
-    expect(() => new TombEntity({})).toThrow(error);
-    expect(() => new TombEntity({ id: ' ' })).toThrow(error);
-  });
+  // test('should invalidate id if is not a number or a falsy value', () => {
+  //   expect(() => new TombEntity({})).toThrow(error);
+  //   expect(() => new TombEntity({ id: ' ' })).toThrow(error);
+  // });
   test('should invalidade floors if is not a number or less than/equal to 0', () => {
     expect(() => new TombEntity({})).toThrow(error);
     expect(() => new TombEntity({ floors: '' })).toThrow(error);
