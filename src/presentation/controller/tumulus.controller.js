@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { TumulusServiceFactory } from '../../service/factory/tumulus.service.factory';
-import { TumulusEntity } from '../../entity/tumulus';
+import { TumulusServiceFactory } from '../../service/factory/tumulus.service.factory.js';
+import { TumulusEntity } from '../../entity/tumulus.js';
 
 const routes = Router();
 

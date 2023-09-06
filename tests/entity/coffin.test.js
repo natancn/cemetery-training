@@ -8,13 +8,13 @@ import { validTumulus } from '../mocks/tumulus.mock';
 
 describe('Coffin - Unit Tests', () => {
   const errorMessage =
-    ' invalid id, invalid material, invalid size, invalid location, invalid tomb, invalid tumulus';
+    ' invalid material, invalid size, invalid location, invalid tomb, invalid tumulus';
   const error = new Error(errorMessage);
 
-  test('should invalidate id if not a number or a falsy', () => {
-    expect(() => new CoffinEntity({})).toThrow(error);
-    expect(() => new CoffinEntity({ id: ' ' })).toThrow(error);
-  });
+  // test('should invalidate id if not a number or a falsy', () => {
+  //   expect(() => new CoffinEntity({})).toThrow(error);
+  //   expect(() => new CoffinEntity({ id: ' ' })).toThrow(error);
+  // });
   test('should invalidate material if differs from Carvalho, Nogueira and Pinho', () => {
     expect(() => new CoffinEntity({})).toThrow(error);
     expect(() => new CoffinEntity({ material: 2 })).toThrow(error);

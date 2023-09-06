@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { TombServiceFactory } from '../../service/factory/tomb.service.factory';
-import { TombEntity } from '../../entity/tomb';
+import { TombServiceFactory } from '../../service/factory/tomb.service.factory.js';
+import { TombEntity } from '../../entity/tomb.js';
 
 const routes = Router();
 
